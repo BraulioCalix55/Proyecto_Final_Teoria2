@@ -27,7 +27,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Segun_imagen2 = new javax.swing.JDialog();
+        Replicacion = new javax.swing.JDialog();
         Btn_agregar_replica = new javax.swing.JButton();
         Btn_eliminar_replica = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -39,7 +39,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Btn_guardar_Tablas = new javax.swing.JButton();
         Btn_Cancelar_tablas = new javax.swing.JButton();
-        Segun_imagen1 = new javax.swing.JDialog();
+        Conexiones = new javax.swing.JDialog();
         Creacion_tablas = new javax.swing.JDialog();
         Btn_crear = new javax.swing.JButton();
         Btn_modificar = new javax.swing.JButton();
@@ -47,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         Tabla_Admin = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         Btn_agregar_replica.setText(">>");
 
@@ -66,79 +67,84 @@ public class Principal extends javax.swing.JFrame {
 
         Btn_Cancelar_tablas.setText("Cancelar");
 
-        javax.swing.GroupLayout Segun_imagen2Layout = new javax.swing.GroupLayout(Segun_imagen2.getContentPane());
-        Segun_imagen2.getContentPane().setLayout(Segun_imagen2Layout);
-        Segun_imagen2Layout.setHorizontalGroup(
-            Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Segun_imagen2Layout.createSequentialGroup()
+        javax.swing.GroupLayout ReplicacionLayout = new javax.swing.GroupLayout(Replicacion.getContentPane());
+        Replicacion.getContentPane().setLayout(ReplicacionLayout);
+        ReplicacionLayout.setHorizontalGroup(
+            ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReplicacionLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addGroup(Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Segun_imagen2Layout.createSequentialGroup()
+                .addGroup(ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ReplicacionLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(92, 92, 92)
-                        .addGroup(Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Btn_eliminar_replica)
                             .addComponent(Btn_agregar_replica))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70))
-                    .addGroup(Segun_imagen2Layout.createSequentialGroup()
+                    .addGroup(ReplicacionLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(111, 111, 111)
                         .addComponent(jLabel2)
                         .addGap(121, 121, 121))))
-            .addGroup(Segun_imagen2Layout.createSequentialGroup()
+            .addGroup(ReplicacionLayout.createSequentialGroup()
                 .addGap(154, 154, 154)
                 .addComponent(Btn_guardar_Tablas)
                 .addGap(140, 140, 140)
                 .addComponent(Btn_Cancelar_tablas)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        Segun_imagen2Layout.setVerticalGroup(
-            Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Segun_imagen2Layout.createSequentialGroup()
+        ReplicacionLayout.setVerticalGroup(
+            ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReplicacionLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Segun_imagen2Layout.createSequentialGroup()
-                        .addGroup(Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(ReplicacionLayout.createSequentialGroup()
+                        .addGroup(ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
-                        .addGroup(Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Segun_imagen2Layout.createSequentialGroup()
+                        .addGroup(ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ReplicacionLayout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addComponent(Btn_agregar_replica)
                                 .addGap(72, 72, 72)
                                 .addComponent(Btn_eliminar_replica))
-                            .addGroup(Segun_imagen2Layout.createSequentialGroup()
+                            .addGroup(ReplicacionLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(Segun_imagen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ReplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_guardar_Tablas)
                     .addComponent(Btn_Cancelar_tablas))
                 .addGap(55, 55, 55))
         );
 
-        javax.swing.GroupLayout Segun_imagen1Layout = new javax.swing.GroupLayout(Segun_imagen1.getContentPane());
-        Segun_imagen1.getContentPane().setLayout(Segun_imagen1Layout);
-        Segun_imagen1Layout.setHorizontalGroup(
-            Segun_imagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout ConexionesLayout = new javax.swing.GroupLayout(Conexiones.getContentPane());
+        Conexiones.getContentPane().setLayout(ConexionesLayout);
+        ConexionesLayout.setHorizontalGroup(
+            ConexionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
         );
-        Segun_imagen1Layout.setVerticalGroup(
-            Segun_imagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        ConexionesLayout.setVerticalGroup(
+            ConexionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 343, Short.MAX_VALUE)
         );
+
+        Creacion_tablas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_crear.setText("Crear Tabla");
+        Creacion_tablas.getContentPane().add(Btn_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 172, -1, -1));
 
         Btn_modificar.setText("Modificar Tabla");
+        Creacion_tablas.getContentPane().add(Btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 172, -1, -1));
 
         Btn_eliminar.setText("Eliminar Tabla");
+        Creacion_tablas.getContentPane().add(Btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 172, -1, -1));
 
         Tabla_Admin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,56 +159,33 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(Tabla_Admin);
 
-        javax.swing.GroupLayout Creacion_tablasLayout = new javax.swing.GroupLayout(Creacion_tablas.getContentPane());
-        Creacion_tablas.getContentPane().setLayout(Creacion_tablasLayout);
-        Creacion_tablasLayout.setHorizontalGroup(
-            Creacion_tablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Creacion_tablasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Creacion_tablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Creacion_tablasLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Creacion_tablasLayout.createSequentialGroup()
-                        .addComponent(Btn_crear)
-                        .addGap(51, 51, 51)
-                        .addComponent(Btn_modificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Btn_eliminar)))
-                .addContainerGap())
-        );
-        Creacion_tablasLayout.setVerticalGroup(
-            Creacion_tablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Creacion_tablasLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(Creacion_tablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Btn_crear)
-                    .addComponent(Btn_modificar)
-                    .addComponent(Btn_eliminar))
-                .addGap(57, 57, 57))
-        );
+        Creacion_tablas.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 375, 131));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("manejo de las bases");
+
+        jButton2.setText("manejo de las tablas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(129, 129, 129))
+                .addGap(34, 34, 34)
+                .addComponent(jButton2)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jButton1)
-                .addContainerGap(148, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -251,12 +234,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_eliminar_replica;
     private javax.swing.JButton Btn_guardar_Tablas;
     private javax.swing.JButton Btn_modificar;
+    private javax.swing.JDialog Conexiones;
     private javax.swing.JDialog Creacion_tablas;
     private javax.swing.JList<String> Lista_tablas_origen;
-    private javax.swing.JDialog Segun_imagen1;
-    private javax.swing.JDialog Segun_imagen2;
+    private javax.swing.JDialog Replicacion;
     private javax.swing.JTable Tabla_Admin;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
