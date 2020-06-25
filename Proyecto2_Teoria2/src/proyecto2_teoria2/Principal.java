@@ -204,21 +204,51 @@ public class Principal extends javax.swing.JFrame {
         baseDatos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton4.setText("Docentes");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         baseDatos.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         jButton5.setText("Facultades");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
         baseDatos.getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         jButton6.setText("Aulas");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
         baseDatos.getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
 
         jButton7.setText("Edificios");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
         baseDatos.getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jButton8.setText("Campus");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
         baseDatos.getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
 
         jButton9.setText("Alumnos");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         baseDatos.getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -870,30 +900,30 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         baseDatos.pack();
         baseDatos.setModal(true);
-        
+
         baseDatos.setLocationRelativeTo(this);
         baseDatos.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-     
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void btn_alumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_alumnosMouseClicked
         String nombre, apellido, id, cuenta, carrera, telefono, fechaingres;
-        nombre=alum_nombre.getText();
+        nombre = alum_nombre.getText();
         alum_nombre.setText("");
-        apellido=alum_apelli.getText();
+        apellido = alum_apelli.getText();
         alum_apelli.setText("");
-        id=alum_id.getText();
+        id = alum_id.getText();
         alum_id.setText("");
-        cuenta=alum_cuenta.getText();
+        cuenta = alum_cuenta.getText();
         alum_cuenta.setText("");
-        carrera=alum_carrera.getText();
+        carrera = alum_carrera.getText();
         alum_carrera.setText("");
-        telefono=alum_telef.getText();
+        telefono = alum_telef.getText();
         alum_telef.setText("");
-        fechaingres=alum_fecha.getText();
+        fechaingres = alum_fecha.getText();
         alum_fecha.setText("");
         //llamar metodo para insertar
     }//GEN-LAST:event_btn_alumnosMouseClicked
@@ -965,6 +995,53 @@ public class Principal extends javax.swing.JFrame {
     private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton26MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        Lista_alumnos.setModal(true);
+        Lista_alumnos.pack();
+        Lista_alumnos.setLocationRelativeTo(this);
+        Lista_alumnos.setVisible(true);
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        Lista_docentes.setModal(true);
+        Lista_docentes.pack();
+        Lista_docentes.setLocationRelativeTo(this);
+        Lista_docentes.setVisible(true);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        Lista_facus.setModal(true);
+        Lista_facus.pack();
+        Lista_facus.setLocationRelativeTo(this);
+        Lista_facus.setVisible(true);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        Lista_aulas.setModal(true);
+        Lista_aulas.pack();
+        Lista_aulas.setLocationRelativeTo(this);
+        Lista_aulas.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        Lista_edificios.setModal(true);
+        Lista_edificios.pack();
+        Lista_edificios.setLocationRelativeTo(this);
+        Lista_edificios.setVisible(true);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        Lista_Campus.setModal(true);
+        Lista_Campus.pack();
+        Lista_Campus.setLocationRelativeTo(this);
+        Lista_Campus.setVisible(true);
+    }//GEN-LAST:event_jButton8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1092,11 +1169,11 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 }
- /*
+/*
            1 alumno: nombre apellido id cuenta carrera telefono fechaingres
-           2 docente nombre apellidos facultad id cuenta profe años genero doble
+           2 docente nombre ,apellidos, facultad, id, cuenta ,profe, años ,genero, doble
            3 facultad nombre añocreacion cantidad docentes, cantidad alumnos, cantidad de clases
-           4 aula numero edificio datashow pizarra capacidad aire compu internet
-           5 edificio numero edi, nombre edi, numero pisos, cantidad aulas, año fundacion, cantidad baños
-           6 campusnombre ciudad cantidad edificios, cantidad de almunos, año recotr
-         */
+           4 aula numero edificio, datashow ,pizarra ,capacidad, aire ,compu, internet
+           5 edificio numero_edi, nombre_edi, numero_pisos, cantidad_aulas, año_fundacion, cantidad_baños
+           6 campus nombre, ciudad ,cantidad_edificios, cantidad_almunos, año recotr
+ */
