@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package principal.Tablas;
 
 /**
  *
  * @author djbrz
  */
-public class aula {
+public class Aula {
     String numero, edificio, datashow ,pizarra ,capacidad, aire ,compu, internet;
 
-    public aula(String numero, String edificio, String datashow, String pizarra, String capacidad, String aire, String compu, String internet) {
+    public Aula(String numero, String edificio, String datashow, String pizarra, String capacidad, String aire, String compu, String internet) {
         this.numero = numero;
         this.edificio = edificio;
         this.datashow = datashow;

@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package principal.Tablas;
 
 /**
  *
  * @author djbrz
  */
-public class docente {
+public class Docente {
     String nombre ,apellidos, facultad, id, cuenta ,profe, años ,genero, doble;
 
-    public docente(String nombre, String apellidos, String facultad, String id, String cuenta, String profe, String años, String genero, String doble) {
+    public Docente(String nombre, String apellidos, String facultad, String id, String cuenta, String profe, String años, String genero, String doble) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.facultad = facultad;

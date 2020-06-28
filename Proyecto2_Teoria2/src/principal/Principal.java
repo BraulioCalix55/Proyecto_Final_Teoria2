@@ -5,6 +5,10 @@
  */
 package principal;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+
 /**
  *
  * @author djbrz
@@ -39,7 +43,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Btn_guardar_Tablas = new javax.swing.JButton();
         Btn_Cancelar_tablas = new javax.swing.JButton();
-        Conexiones = new javax.swing.JDialog();
         baseDatos = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jButton27 = new javax.swing.JButton();
@@ -48,10 +51,16 @@ public class Principal extends javax.swing.JFrame {
         Tabla_campus = new javax.swing.JTable();
         jButton24 = new javax.swing.JButton();
         label5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         Btn_agregar_replica.setText(">>");
+        Btn_agregar_replica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_agregar_replicaMouseClicked(evt);
+            }
+        });
 
         Btn_eliminar_replica.setText("<<");
 
@@ -59,8 +68,10 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel2.setText("Replicando");
 
+        lista_tablas_destino.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(lista_tablas_destino);
 
+        Lista_tablas_origen.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(Lista_tablas_origen);
 
         jLabel3.setText("Tablas BD Origen");
@@ -130,17 +141,6 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
         );
 
-        javax.swing.GroupLayout ConexionesLayout = new javax.swing.GroupLayout(Conexiones.getContentPane());
-        Conexiones.getContentPane().setLayout(ConexionesLayout);
-        ConexionesLayout.setHorizontalGroup(
-            ConexionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
-        );
-        ConexionesLayout.setVerticalGroup(
-            ConexionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
-        );
-
         baseDatos.setTitle("Hacia la bitácora...");
         baseDatos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -201,14 +201,12 @@ public class Principal extends javax.swing.JFrame {
 
         label5.setText("Bitácora POSTGRESQL");
 
+        jButton3.setText("Listar");
+
         javax.swing.GroupLayout bitacoraLayout = new javax.swing.GroupLayout(bitacora.getContentPane());
         bitacora.getContentPane().setLayout(bitacoraLayout);
         bitacoraLayout.setHorizontalGroup(
             bitacoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bitacoraLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bitacoraLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(bitacoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,6 +216,12 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bitacoraLayout.createSequentialGroup()
                         .addComponent(jButton24)
                         .addContainerGap())))
+            .addGroup(bitacoraLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(bitacoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         bitacoraLayout.setVerticalGroup(
             bitacoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,7 +230,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(label5)
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addGap(3, 3, 3)
                 .addComponent(jButton24)
                 .addContainerGap())
         );
@@ -274,10 +280,19 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        DefaultListModel modelo=(DefaultListModel)Lista_tablas_origen.getModel();
+        modelo.addElement("Alumno");
+        modelo.addElement("Aula");
+        modelo.addElement("Campus");
+        modelo.addElement("Docente");
+        modelo.addElement("Edificio");
+        modelo.addElement("Facultdad");
+        Lista_tablas_origen.setModel(modelo);
         Replicacion.setModal(true);
         Replicacion.pack();
         Replicacion.setLocationRelativeTo(this);
         Replicacion.setVisible(true);
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -305,6 +320,34 @@ public class Principal extends javax.swing.JFrame {
         bitacora.setLocationRelativeTo(this);
         bitacora.setVisible(true);
     }//GEN-LAST:event_jButton27MouseClicked
+
+    private void Btn_agregar_replicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_agregar_replicaMouseClicked
+        // TODO add your handling code here:
+        if(Lista_tablas_origen.getSelectedIndex()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento de la lista para replicar", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            DefaultListModel model=(DefaultListModel)Lista_tablas_origen.getModel();
+            String tabla="";
+            tabla=(String)model.getElementAt(Lista_tablas_origen.getSelectedIndex());
+            DefaultListModel modelo=(DefaultListModel)lista_tablas_destino.getModel();
+            
+            boolean flag=false;
+            for (int i = 0; i <modelo.getSize(); i++) {
+                if(tabla.equalsIgnoreCase((String)modelo.getElementAt(i))){
+                    flag=true;
+                }
+            }
+            if(flag==false){
+                modelo.addElement(tabla);
+               lista_tablas_destino.setModel(modelo);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Ya agrego esta tabla a su base de datos de destino", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }
+    }//GEN-LAST:event_Btn_agregar_replicaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -346,7 +389,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_agregar_replica;
     private javax.swing.JButton Btn_eliminar_replica;
     private javax.swing.JButton Btn_guardar_Tablas;
-    private javax.swing.JDialog Conexiones;
     private javax.swing.JList<String> Lista_tablas_origen;
     private javax.swing.JDialog Replicacion;
     private javax.swing.JTable Tabla_campus;
@@ -356,6 +398,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
