@@ -8,29 +8,29 @@ package Oracle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import tablas.Alumno;
+import tablas.Docente;
 
 /**
  *
  * @author David
  */
-public class AlumnoDAO {
+public class DocenteDAO {
     String mensaje="";
     
-    public String agregarAlumno(Connection con, Alumno e){
+    public String agregarDocente(Connection con, Docente e){
         PreparedStatement pst = null;
-        String sql = "INSERT INTO ALUMNO VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO DOCENTE VALUES (?,?,?,?,?,?,?,?)";
         
         try {
             pst =con.prepareStatement(sql);
             pst.setString(1, e.getNombre());
-            pst.setString(2, e.getApellido());
-            pst.setString(3, e.getId());
-            pst.setString(4, e.getCuenta());
-            pst.setString(5, e.getCarrera());
-            pst.setString(6, e.getTelefono());
-            pst.setString(7, e.getFechaingres());
-           
+            pst.setString(2, e.getApellidos());
+            pst.setString(3, e.getFacultad());
+            pst.setString(4, e.getId());
+            pst.setString(5, e.getCuenta());
+            pst.setString(6, e.getAños());
+            pst.setString(7, e.getGenero());
+            pst.setString(8, e.getDoble());
             mensaje="GUARDADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -42,18 +42,19 @@ public class AlumnoDAO {
         return mensaje;
     }
     
-    public String modificarAlumno(Connection con, Alumno e){
+    public String modificarDocente(Connection con, Docente e){
         PreparedStatement pst = null;
-        String sql = "UPDATE INTO ALUMNO SET NOMBRE =?, APELLIDO=?, CUENTA=?,CARRERA=?,TELEFONO=? FECHA_INGRESO=? WHERE ID=?";
+        String sql = "UPDATE INTO DOCENTE SET NOMBRE =?, APELLIDOS=?, FACULTAD=?, CUENTA=?, ANOS_EXPERIENCIA=?, GENERO=?, DOBLE_TITULACION=? WHERE ID=?";
         try {
             pst =con.prepareStatement(sql);
             pst.setString(1, e.getNombre());
-            pst.setString(2, e.getApellido());
-            pst.setString(3, e.getCuenta());
-            pst.setString(4, e.getCarrera());
-            pst.setString(5, e.getTelefono());
-            pst.setString(6, e.getFechaingres());
-            pst.setString(7, e.getId());
+            pst.setString(2, e.getApellidos());
+            pst.setString(3, e.getFacultad());
+            pst.setString(4, e.getCuenta());
+            pst.setString(5, e.getAños());
+            pst.setString(6, e.getGenero());
+            pst.setString(7, e.getDoble());
+            pst.setString(8, e.getId());
             mensaje="MODIFICADO CORRECTAMENTE";
             pst.execute();
             pst.close();
@@ -66,9 +67,9 @@ public class AlumnoDAO {
         return mensaje;
     }
     
-    public String eliminarAlumno(Connection con, String ID){
+    public String eliminarDocente(Connection con, String ID){
         PreparedStatement pst = null;
-        String sql = "Delete from Alumno where ID ="+ID+";";
+        String sql = "Delete from DOCENTE where ID ="+ID+"";
         try {
             pst =con.prepareStatement(sql);
             System.out.println("Borro");

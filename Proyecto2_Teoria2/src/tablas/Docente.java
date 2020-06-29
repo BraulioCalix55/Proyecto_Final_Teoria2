@@ -10,15 +10,14 @@ package tablas;
  * @author djbrz
  */
 public class Docente {
-    String nombre ,apellidos, facultad, id, cuenta ,profe, años ,genero, doble;
+    String nombre ,apellidos, facultad, id, cuenta , años ,genero, doble;
 
-    public Docente(String nombre, String apellidos, String facultad, String id, String cuenta, String profe, String años, String genero, String doble) {
+    public Docente(String nombre, String apellidos, String facultad, String id, String cuenta, String años, String genero, String doble) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.facultad = facultad;
         this.id = id;
         this.cuenta = cuenta;
-        this.profe = profe;
         this.años = años;
         this.genero = genero;
         this.doble = doble;
@@ -64,13 +63,6 @@ public class Docente {
         this.cuenta = cuenta;
     }
 
-    public String getProfe() {
-        return profe;
-    }
-
-    public void setProfe(String profe) {
-        this.profe = profe;
-    }
 
     public String getAños() {
         return años;

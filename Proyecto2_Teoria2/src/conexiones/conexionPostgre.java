@@ -33,7 +33,7 @@ public class conexionPostgre {
         conexion=DriverManager.getConnection(url,login,password);
         conexion.setAutoCommit(false);
         if(conexion!=null){
-            JOptionPane.showMessageDialog(null, "Conexion exitosa", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+        //    JOptionPane.showMessageDialog(null, "Conexion exitosa", "Atencion", JOptionPane.INFORMATION_MESSAGE);
 
         }
         else{

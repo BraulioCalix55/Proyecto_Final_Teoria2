@@ -8,20 +8,20 @@ package Oracle;
 import conexiones.conexionOracle;
 import java.sql.Connection;
 import java.sql.SQLException;
-import tablas.Alumno;
+import tablas.Aula;
 
 /**
  *
  * @author David
  */
-public class AlumnoBO {
-     public String mensaje="";
-     public AlumnoDAO edao=new AlumnoDAO();
+public class AulaBO {
+    public String mensaje="";
+     public AulaDAO edao=new AulaDAO();
     
-    public String agregarAlumno(Alumno e) throws SQLException{
+    public String agregarAula(Aula e) throws SQLException{
         Connection con =conexionOracle.getConnection(conexionOracle.login, conexionOracle.password, conexionOracle.url);
         try {
-            mensaje=edao.agregarAlumno(con, e);
+            mensaje=edao.agregarAula(con, e);
         } catch (Exception ex) {
             mensaje=mensaje+ " "+ex.getMessage();
         }
@@ -37,10 +37,10 @@ public class AlumnoBO {
         return mensaje;
     }
     
-    public String modificarAlumno(Alumno e) throws SQLException{
+    public String modificarAula(Aula e) throws SQLException{
          Connection con =conexionOracle.getConnection(conexionOracle.login, conexionOracle.password, conexionOracle.url);
         try {
-            mensaje=edao.modificarAlumno(con, e);
+            mensaje=edao.modificarAula(con, e);
         } catch (Exception ex) {
             mensaje=mensaje+ " "+ex.getMessage();
         }
@@ -57,10 +57,10 @@ public class AlumnoBO {
        
     }
     
-    public String eliminarAlumno(String ID) throws SQLException{
+    public String eliminarAula(String ID) throws SQLException{
          Connection con =conexionOracle.getConnection(conexionOracle.login, conexionOracle.password, conexionOracle.url);
         try {
-            mensaje=edao.eliminarAlumno(con, ID);
+            mensaje=edao.eliminarAula(con, ID);
         } catch (Exception e) {
             mensaje=mensaje+ " "+e.getMessage();
         }
@@ -75,5 +75,4 @@ public class AlumnoBO {
         }
         return mensaje;
     }
-    
 }

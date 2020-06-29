@@ -10,15 +10,15 @@ package tablas;
  * @author djbrz
  */
 public class Edificio {
-    String numero_edi, nombre_edi, numero_pisos, cantidad_aulas, año_fundacion, cantidad_baños;
+    String numero_edi, nombre_edi, numero_pisos, cantidad_aulas, ano_fundacion, cantidad_banos;
 
-    public Edificio(String numero_edi, String nombre_edi, String numero_pisos, String cantidad_aulas, String año_fundacion, String cantidad_baños) {
+    public Edificio(String numero_edi, String nombre_edi, String numero_pisos, String cantidad_aulas, String ano_fundacion, String cantidad_banos) {
         this.numero_edi = numero_edi;
         this.nombre_edi = nombre_edi;
         this.numero_pisos = numero_pisos;
         this.cantidad_aulas = cantidad_aulas;
-        this.año_fundacion = año_fundacion;
-        this.cantidad_baños = cantidad_baños;
+        this.ano_fundacion = ano_fundacion;
+        this.cantidad_banos = cantidad_banos;
     }
 
     public String getNumero_edi() {
@@ -53,20 +53,20 @@ public class Edificio {
         this.cantidad_aulas = cantidad_aulas;
     }
 
-    public String getAño_fundacion() {
-        return año_fundacion;
+    public String getAno_fundacion() {
+        return ano_fundacion;
     }
 
-    public void setAño_fundacion(String año_fundacion) {
-        this.año_fundacion = año_fundacion;
+    public void setAno_fundacion(String año_fundacion) {
+        this.ano_fundacion = año_fundacion;
     }
 
-    public String getCantidad_baños() {
-        return cantidad_baños;
+    public String getCantidad_banos() {
+        return cantidad_banos;
     }
 
-    public void setCantidad_baños(String cantidad_baños) {
-        this.cantidad_baños = cantidad_baños;
+    public void setCantidad_banos(String cantidad_baños) {
+        this.cantidad_banos = cantidad_baños;
     }
     
 }

@@ -8,20 +8,20 @@ package Oracle;
 import conexiones.conexionOracle;
 import java.sql.Connection;
 import java.sql.SQLException;
-import tablas.Alumno;
+import tablas.Edificio;
 
 /**
  *
  * @author David
  */
-public class AlumnoBO {
-     public String mensaje="";
-     public AlumnoDAO edao=new AlumnoDAO();
+public class EdificioBO {
+    public String mensaje="";
+     public EdificioDAO edao=new EdificioDAO();
     
-    public String agregarAlumno(Alumno e) throws SQLException{
+    public String agregarEdificio(Edificio e) throws SQLException{
         Connection con =conexionOracle.getConnection(conexionOracle.login, conexionOracle.password, conexionOracle.url);
         try {
-            mensaje=edao.agregarAlumno(con, e);
+            mensaje=edao.agregarEdificio(con, e);
         } catch (Exception ex) {
             mensaje=mensaje+ " "+ex.getMessage();
         }
@@ -37,10 +37,10 @@ public class AlumnoBO {
         return mensaje;
     }
     
-    public String modificarAlumno(Alumno e) throws SQLException{
+    public String modificarEdificio(Edificio e) throws SQLException{
          Connection con =conexionOracle.getConnection(conexionOracle.login, conexionOracle.password, conexionOracle.url);
         try {
-            mensaje=edao.modificarAlumno(con, e);
+            mensaje=edao.modificarEdificio(con, e);
         } catch (Exception ex) {
             mensaje=mensaje+ " "+ex.getMessage();
         }
@@ -57,10 +57,10 @@ public class AlumnoBO {
        
     }
     
-    public String eliminarAlumno(String ID) throws SQLException{
+    public String eliminarEdificio(String ID) throws SQLException{
          Connection con =conexionOracle.getConnection(conexionOracle.login, conexionOracle.password, conexionOracle.url);
         try {
-            mensaje=edao.eliminarAlumno(con, ID);
+            mensaje=edao.eliminarEdificio(con, ID);
         } catch (Exception e) {
             mensaje=mensaje+ " "+e.getMessage();
         }
@@ -75,5 +75,4 @@ public class AlumnoBO {
         }
         return mensaje;
     }
-    
 }

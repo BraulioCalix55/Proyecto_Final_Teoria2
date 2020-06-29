@@ -6,6 +6,11 @@
 package principal;
 
 import Oracle.AlumnoBO;
+import Oracle.AulaBO;
+import Oracle.CampusBO;
+import Oracle.DocenteBO;
+import Oracle.EdificioBO;
+import Oracle.FacultadBO;
 import Postgre.BitacoraBO;
 import conexiones.conexionOracle;
 import conexiones.conexionPostgre;
@@ -19,6 +24,11 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import tablas.Alumno;
+import tablas.Aula;
+import tablas.Campus;
+import tablas.Docente;
+import tablas.Edificio;
+import tablas.Facultad;
 
 /**
  *
@@ -652,18 +662,64 @@ public class Principal extends javax.swing.JFrame {
                     datos.remove(0);
                     
                     if(operacion.equalsIgnoreCase("insercion")){
-                        Alumno a=new Alumno(data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
-                        AlumnoBO al=new AlumnoBO();
-                        al.agregarAlumno(a);
-                        JOptionPane.showMessageDialog(this, "Ha agregado exitosamente");
+                        if(tablas.get(i).equalsIgnoreCase("alumno")){
+                            Alumno a=new Alumno(data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+                            AlumnoBO al=new AlumnoBO();
+                            al.agregarAlumno(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado alumnos exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("aula")){
+                            Aula a=new Aula(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+                            AulaBO al=new AulaBO();
+                            al.agregarAula(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado aulas exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("campus")){
+
+                            Campus a=new Campus(data[0],data[1],data[2],data[3],data[4],data[5]);
+                            CampusBO al=new CampusBO();
+                            al.agregarCampus(a);
+                           // JOptionPane.showMessageDialog(this, "Ha agregado campus exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("docente")){
+
+                            Docente a=new Docente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+                            DocenteBO al=new DocenteBO();
+                            al.agregarDocente(a);
+                           // JOptionPane.showMessageDialog(this, "Ha agregado docentes exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("edificio")){
+                            System.out.println("entro a edificio");
+                            System.out.println("edificio "+data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+data[4]+" "+data[5]);
+                            Edificio a=new Edificio(data[0],data[1],data[2],data[3],data[4],data[5]);
+                            EdificioBO al=new EdificioBO();
+                            al.agregarEdificio(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado edificios exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("facultad")){
+                            System.out.println("entro a edificio");
+                            Facultad a=new Facultad(data[0],data[1],data[2],data[3],data[4]);
+                            FacultadBO al=new FacultadBO();
+                            al.agregarFacultad(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado facultades exitosamente");
+                        }
+                            
+                    }
+                    else if (operacion.equalsIgnoreCase("modificacion")){
+                        
+                    }
+                    else if (operacion.equalsIgnoreCase("eliminacion")){
+                        
                     }
                     
                 }
+                
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
             
         }
+        JOptionPane.showMessageDialog(this, "Ha replicado exitosamente");
     }//GEN-LAST:event_Btn_guardar_TablasMouseClicked
 
     /**
