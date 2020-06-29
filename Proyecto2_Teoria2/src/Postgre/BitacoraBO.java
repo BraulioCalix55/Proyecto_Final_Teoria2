@@ -59,4 +59,24 @@ public class BitacoraBO {
         }
         return datos;
     }
+    
+    public void deleteBitacora(String tabla) throws SQLException{
+        ArrayList <String> datos=new ArrayList();
+        Connection con =conexionPostgre.getConnection(conexionPostgre.login, conexionPostgre.password, conexionPostgre.url);
+        try {
+            cdao.deleteBitacora(con, tabla);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(con!=null){
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+    }
 }

@@ -110,6 +110,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         Btn_eliminar_replica.setText("<<");
+        Btn_eliminar_replica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_eliminar_replicaMouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Sin Replicar");
 
@@ -706,10 +711,89 @@ public class Principal extends javax.swing.JFrame {
                             
                     }
                     else if (operacion.equalsIgnoreCase("modificacion")){
-                        
+                        if(tablas.get(i).equalsIgnoreCase("alumno")){
+                            Alumno a=new Alumno(data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+                            AlumnoBO al=new AlumnoBO();
+                            al.modificarAlumno(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado alumnos exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("aula")){
+                            Aula a=new Aula(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+                            AulaBO al=new AulaBO();
+                            al.modificarAula(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado aulas exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("campus")){
+
+                            Campus a=new Campus(data[0],data[1],data[2],data[3],data[4],data[5]);
+                            CampusBO al=new CampusBO();
+                            al.modificarCampus(a);
+                           // JOptionPane.showMessageDialog(this, "Ha agregado campus exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("docente")){
+
+                            Docente a=new Docente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+                            DocenteBO al=new DocenteBO();
+                            al.modificarDocente(a);
+                           // JOptionPane.showMessageDialog(this, "Ha agregado docentes exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("edificio")){
+                            
+                            Edificio a=new Edificio(data[0],data[1],data[2],data[3],data[4],data[5]);
+                            EdificioBO al=new EdificioBO();
+                            al.modificarEdificio(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado edificios exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("facultad")){
+                            System.out.println("entro a edificio");
+                            Facultad a=new Facultad(data[0],data[1],data[2],data[3],data[4]);
+                            FacultadBO al=new FacultadBO();
+                            al.modificarFacultad(a);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado facultades exitosamente");
+                        }
                     }
                     else if (operacion.equalsIgnoreCase("eliminacion")){
-                        
+                        if(tablas.get(i).equalsIgnoreCase("alumno")){
+                            Alumno a=new Alumno(data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+                            AlumnoBO al=new AlumnoBO();
+                            al.eliminarAlumno(llave);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado alumnos exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("aula")){
+                            Aula a=new Aula(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+                            AulaBO al=new AulaBO();
+                            al.eliminarAula(llave);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado aulas exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("campus")){
+
+                            Campus a=new Campus(data[0],data[1],data[2],data[3],data[4],data[5]);
+                            CampusBO al=new CampusBO();
+                            al.eliminarCampus(llave);
+                           // JOptionPane.showMessageDialog(this, "Ha agregado campus exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("docente")){
+
+                            Docente a=new Docente(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+                            DocenteBO al=new DocenteBO();
+                            al.eliminarDocente(llave);
+                           // JOptionPane.showMessageDialog(this, "Ha agregado docentes exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("edificio")){
+                            System.out.println("entro a edificio");
+                            System.out.println("edificio "+data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+data[4]+" "+data[5]);
+                            Edificio a=new Edificio(data[0],data[1],data[2],data[3],data[4],data[5]);
+                            EdificioBO al=new EdificioBO();
+                            al.eliminarEdificio(llave);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado edificios exitosamente");
+                        }
+                        else if (tablas.get(i).equalsIgnoreCase("facultad")){
+                            System.out.println("entro a edificio");
+                            Facultad a=new Facultad(data[0],data[1],data[2],data[3],data[4]);
+                            FacultadBO al=new FacultadBO();
+                            al.eliminarFacultad(llave);
+                          //  JOptionPane.showMessageDialog(this, "Ha agregado facultades exitosamente");
+                        }
                     }
                     
                 }
@@ -720,7 +804,31 @@ public class Principal extends javax.swing.JFrame {
             
         }
         JOptionPane.showMessageDialog(this, "Ha replicado exitosamente");
+        BitacoraBO bb=new BitacoraBO();
+        for (int i = 0; i < tablas.size(); i++) {
+            try {
+                bb.deleteBitacora(tablas.get(i));
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        
     }//GEN-LAST:event_Btn_guardar_TablasMouseClicked
+
+    private void Btn_eliminar_replicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_eliminar_replicaMouseClicked
+        // TODO add your handling code here:
+        if(lista_tablas_destino.getSelectedIndex()==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un elemento de la lista para mover", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            DefaultListModel model=(DefaultListModel)Lista_tablas_origen.getModel();
+            String tabla="";
+            tabla=(String)model.getElementAt(Lista_tablas_origen.getSelectedIndex());
+            DefaultListModel modelo=(DefaultListModel)lista_tablas_destino.getModel();
+            modelo.remove(lista_tablas_destino.getSelectedIndex());
+            lista_tablas_destino.setModel(modelo);
+        }
+    }//GEN-LAST:event_Btn_eliminar_replicaMouseClicked
 
     /**
      * @param args the command line arguments

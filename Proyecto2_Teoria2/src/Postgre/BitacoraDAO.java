@@ -69,5 +69,24 @@ public class BitacoraDAO {
         }
         return datos;
     }
+     
+      public void deleteBitacora(Connection con, String tabla) throws SQLException{
+        tabla="'"+tabla.toUpperCase()+"'";
+          System.out.println("tabla "+tabla);
+        boolean s;
+        ArrayList <String> datos=new ArrayList();
+        String sql="DELETE FROM public.\"BITACORA\"\n" +
+"	WHERE \"TABLA\"="+tabla+";";
+        Statement st=con.createStatement();
+        s=st.execute(sql);
+        try {
+           // rs.close();
+            st.close();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla :( "+e.getMessage());
+        }
+        
+    }
     
 }
