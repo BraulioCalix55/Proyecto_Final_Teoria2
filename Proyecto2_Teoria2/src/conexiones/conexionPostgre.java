@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class conexionPostgre {
     public static Connection conexion=null;
-    public static String login="admin";
+    public static String login="adminp";
     public static String password="12345678";
-    public static String url = "jdbc:postgre:thin:@database-1.cckt1lta21wy.us-east-1.rds.amazonaws.com:1521:ORCL";
+    public static String url = "jdbc:postgresql://p-postgre1.cetqru1i2nki.us-east-1.rds.amazonaws.com:5432/postgres";
 
     public conexionPostgre(String login, String password, String url) {
         conexion=null;

@@ -5,6 +5,8 @@
  */
 package principal;
 
+import Oracle.AlumnoBO;
+import Postgre.BitacoraBO;
 import conexiones.conexionOracle;
 import conexiones.conexionPostgre;
 import java.sql.SQLException;
@@ -14,6 +16,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import java.sql.Connection;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import tablas.Alumno;
 
 /**
  *
@@ -54,7 +59,7 @@ public class Principal extends javax.swing.JFrame {
         jButton27 = new javax.swing.JButton();
         bitacora = new javax.swing.JDialog();
         jScrollPane8 = new javax.swing.JScrollPane();
-        Tabla_campus = new javax.swing.JTable();
+        tabla_bitacora = new javax.swing.JTable();
         jButton24 = new javax.swing.JButton();
         label5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -109,6 +114,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel3.setText("Tablas BD Origen");
 
         Btn_guardar_Tablas.setText("Guardar");
+        Btn_guardar_Tablas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_guardar_TablasMouseClicked(evt);
+            }
+        });
 
         Btn_Cancelar_tablas.setText("Cancelar");
         Btn_Cancelar_tablas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -206,7 +216,7 @@ public class Principal extends javax.swing.JFrame {
 
         bitacora.setTitle("Bitácora");
 
-        Tabla_campus.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_bitacora.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -222,7 +232,7 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(Tabla_campus);
+        jScrollPane8.setViewportView(tabla_bitacora);
 
         jButton24.setText("Cerrar");
         jButton24.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,6 +244,11 @@ public class Principal extends javax.swing.JFrame {
         label5.setText("Bitácora POSTGRESQL");
 
         jButton3.setText("Listar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout bitacoraLayout = new javax.swing.GroupLayout(bitacora.getContentPane());
         bitacora.getContentPane().setLayout(bitacoraLayout);
@@ -568,12 +583,12 @@ public class Principal extends javax.swing.JFrame {
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo=(DefaultListModel)Lista_tablas_origen.getModel();
-        modelo.addElement("Alumno");
-        modelo.addElement("Aula");
-        modelo.addElement("Campus");
-        modelo.addElement("Docente");
-        modelo.addElement("Edificio");
-        modelo.addElement("Facultdad");
+        modelo.addElement("ALUMNO");
+        modelo.addElement("AULA");
+        modelo.addElement("CAMPUS");
+        modelo.addElement("DOCENTE");
+        modelo.addElement("EDICIFIO");
+        modelo.addElement("FACULTAD");
         Lista_tablas_origen.setModel(modelo);
         Replicacion.setModal(true);
         Replicacion.pack();
@@ -596,6 +611,60 @@ public class Principal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        BitacoraBO b=new BitacoraBO();
+        ArrayList<String>datos=new ArrayList();
+        try {
+            datos=b.obtenerBitacora(tabla_bitacora);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void Btn_guardar_TablasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_guardar_TablasMouseClicked
+        // TODO add your handling code here:
+        DefaultListModel model=(DefaultListModel)lista_tablas_destino.getModel();
+        ArrayList<String>tablas=new ArrayList();
+        for (int i = 0; i <model.getSize(); i++) {
+            tablas.add((String)model.getElementAt(i));
+        }
+        ArrayList<String>datos=new ArrayList();
+        String operacion="";
+        String llave="";
+        String data[];
+        int cont=0;
+        BitacoraBO b=new BitacoraBO();
+        for (int i = 0; i <tablas.size(); i++) {
+            System.out.println("Tabla: "+tablas.get(i));
+            try {
+                String t="'"+tablas.get(i)+"'";
+                datos=b.selectBitacora(t);
+                for (int j = 0; j <datos.size(); j++) {
+                    
+                    operacion=datos.get(0);
+                    llave=datos.get(1);
+                    data=datos.get(2).split(",");
+                    
+                    datos.remove(0);
+                    datos.remove(0);
+                    datos.remove(0);
+                    
+                    if(operacion.equalsIgnoreCase("insercion")){
+                        Alumno a=new Alumno(data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+                        AlumnoBO al=new AlumnoBO();
+                        al.agregarAlumno(a);
+                        JOptionPane.showMessageDialog(this, "Ha agregado exitosamente");
+                    }
+                    
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            
+        }
+    }//GEN-LAST:event_Btn_guardar_TablasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -640,7 +709,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Conexion;
     private javax.swing.JList<String> Lista_tablas_origen;
     private javax.swing.JDialog Replicacion;
-    private javax.swing.JTable Tabla_campus;
     private javax.swing.JDialog baseDatos;
     private javax.swing.JDialog bitacora;
     private javax.swing.JTextField instancia_base_destino;
@@ -680,6 +748,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField password_base_origen;
     private javax.swing.JTextField puerto_base_destino;
     private javax.swing.JTextField puerto_base_origen;
+    private javax.swing.JTable tabla_bitacora;
     private javax.swing.JTextField usuario_base_destino;
     private javax.swing.JTextField usuario_base_origen;
     // End of variables declaration//GEN-END:variables
